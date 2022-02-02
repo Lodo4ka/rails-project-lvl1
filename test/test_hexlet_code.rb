@@ -7,7 +7,16 @@ class TestHexletCode < Minitest::Test
     refute_nil ::HexletCode::VERSION
   end
 
-  def test_it_does_something_useful
-    assert false
-  end
+  # def test_build_not_pair_tag
+  #   assert { HexletCode::Tag.build('br') == '<br/>' }
+  #   assert { HexletCode::Tag.build('img', src: 'path/to/image' ) == '<img src="path/to/image">' }
+  #   assert { HexletCode::Tag.build('input', type: 'submit', value: 'Save' ) == '<input type="submit" value="Save">' }
+  # end
+
+  # Для парных тегов тело передается как блок
+  # def test_build_pair_tag
+  #   assert { HexletCode::Tag.build('label') { 'Email' } == '<label>Email</label>' }
+  #   assert { HexletCode::Tag.build('label', for: 'email') { 'Email' } == '<label for="email">Email</label>' }
+  #   assert { HexletCode::Tag.build('div') == '<div></div>' }
+  # end
 end
