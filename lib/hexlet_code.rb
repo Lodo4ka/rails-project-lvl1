@@ -22,4 +22,9 @@ module HexletCode
       end
     end
   end
+
+  def self.form_for(user, **attrib)
+    url = attrib[:url] || "#"
+    "<form action=\"#{url}\" method=\"post\"></form>"
+  end
 end
