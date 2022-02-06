@@ -11,7 +11,7 @@ module HexletCode
       end
 
       def to_html_string
-        Tag.build("form", action: @url, method: "post") { @children.join("\n    ") }
+        Tag.build("form", action: @url, method: "post") { @children.join }
       end
     end
   end
