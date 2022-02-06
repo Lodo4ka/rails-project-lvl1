@@ -6,3 +6,6 @@ Layout/LineLength:
 
 Style/Documentation:
   Enabled: false
+
+Style/FileRead:
+  Enabled: true

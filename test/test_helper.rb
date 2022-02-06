@@ -8,6 +8,6 @@ require 'minitest-power_assert'
 
 module FixtureHelper
   def read_fixture_file(file_name)
-    File.open(File.expand_path("../test/fixtures/#{file_name}", __dir__), 'r').read
+    File.read(File.expand_path("../test/fixtures/#{file_name}", __dir__))
   end
 end
