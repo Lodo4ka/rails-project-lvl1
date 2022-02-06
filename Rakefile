@@ -10,7 +10,12 @@ Rake::TestTask.new(:test) do |t|
 end
 
 require 'rubocop/rake_task'
-
-RuboCop::RakeTask.new
-
+begin
+  RuboCop::RakeTask.new do |t|
+    t.options = ['--display-cop-names']
+  end
+rescue LoadError
+end
 task default: %i[test rubocop]
+
+
