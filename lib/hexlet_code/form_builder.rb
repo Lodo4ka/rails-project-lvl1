@@ -15,8 +15,9 @@ module HexletCode
       @entity.public_send(attr_name)
       attr_value = @entity[attr_name]
       type = options[:as]
+      attrib_tag = options.except(:as)
       tag_instance = (type.nil? ? "HexletCode::Tags::Input" : "HexletCode::Tags::#{type.to_s.capitalize}").constantize
-      input = tag_instance.new(attr_name, attr_value).to_html_string
+      input = tag_instance.new(attr_name, attr_value, nil, attrib_tag).to_html_string
       label = Tags::Label.new(attr_name).to_html_string
       @children_tags << label
       @children_tags << input
@@ -28,9 +29,7 @@ module HexletCode
     end
 
     def build
-      result_form = Tags::Form.new(@url, @children_tags).to_html_string
-      pp "result_form", result_form
-      result_form
+      Tags::Form.new(@url, @children_tags).to_html_string
     end
   end
 end
