@@ -1,8 +1,9 @@
 # frozen_string_literal: true
 
+require "hexlet_code/tags.rb"
+
 module HexletCode
   class FormBuilder
-    autoload :Tags, "hexlet_code/tags.rb"
 
     def initialize(entity, url)
       @entity = entity
@@ -14,7 +15,7 @@ module HexletCode
       @entity.public_send(attr_name)
       attr_value = @entity[attr_name]
       type = options[:as]
-      tag_instance = type.nil? ? "HexletCode::Tags::Input".constantize : "HexletCode::Tags::#{type.to_s.capitalize}".constantize
+      tag_instance = (type.nil? ? "HexletCode::Tags::Input" : "HexletCode::Tags::#{type.to_s.capitalize}").constantize
       input = tag_instance.new(attr_name, attr_value).to_html_string
       label = Tags::Label.new(attr_name).to_html_string
       @children_tags << label
