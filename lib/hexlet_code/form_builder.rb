@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require "hexlet_code/tags.rb"
+require "hexlet_code/tags"
 
 module HexletCode
   class FormBuilder
