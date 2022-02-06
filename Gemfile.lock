@@ -2,11 +2,20 @@ PATH
   remote: .
   specs:
     hexlet_code (0.1.0)
+      activesupport
 
 GEM
   remote: https://rubygems.org/
   specs:
+    activesupport (7.0.1)
+      concurrent-ruby (~> 1.0, >= 1.0.2)
+      i18n (>= 1.6, < 2)
+      minitest (>= 5.1)
+      tzinfo (~> 2.0)
     ast (2.4.2)
+    concurrent-ruby (1.1.9)
+    i18n (1.9.1)
+      concurrent-ruby (~> 1.0)
     minitest (5.15.0)
     minitest-power_assert (0.3.1)
       minitest
@@ -31,12 +40,15 @@ GEM
     rubocop-ast (1.15.1)
       parser (>= 3.0.1.1)
     ruby-progressbar (1.11.0)
+    tzinfo (2.0.4)
+      concurrent-ruby (~> 1.0)
     unicode-display_width (2.1.0)
 
 PLATFORMS
   x86_64-darwin-21
 
 DEPENDENCIES
+  activesupport
   hexlet_code!
   minitest (~> 5.0)
   minitest-power_assert
