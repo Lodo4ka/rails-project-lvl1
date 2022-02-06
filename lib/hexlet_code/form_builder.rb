@@ -22,13 +22,15 @@ module HexletCode
       @children_tags << input
     end
 
-    def submit
-      submit_input = Tags::Input.new("commit", "Save", "submit").to_html_string
+    def submit(attr_value = "Save")
+      submit_input = Tags::Input.new("commit", attr_value, "submit").to_html_string
       @children_tags << submit_input
     end
 
     def build
-      Tags::Form.new(@url, @children_tags).to_html_string
+      result_form = Tags::Form.new(@url, @children_tags).to_html_string
+      pp "result_form", result_form
+      result_form
     end
   end
 end
