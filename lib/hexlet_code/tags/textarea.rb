@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require_relative "./tag"
+require_relative './tag'
 
 module HexletCode
   module Tags
@@ -15,7 +15,7 @@ module HexletCode
       end
 
       def to_html_string
-        Tag.build("textarea", cols: @cols, rows: @rows, name: @name, **@attributes) { @value }
+        Tag.build('textarea', cols: @cols, rows: @rows, name: @name, **@attributes) { @value }
       end
     end
   end

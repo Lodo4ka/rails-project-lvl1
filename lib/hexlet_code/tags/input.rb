@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require_relative "./tag"
+require_relative './tag'
 
 module HexletCode
   module Tags
@@ -8,12 +8,12 @@ module HexletCode
       def initialize(attr_name, attr_value, type, attributes = {})
         @name = attr_name
         @value = attr_value
-        @type = type || "text"
+        @type = type || 'text'
         @attributes = attributes
       end
 
       def to_html_string
-        Tag.build "input", name: @name, type: @type, value: @value, **@attributes
+        Tag.build 'input', name: @name, type: @type, value: @value, **@attributes
       end
     end
   end

@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require_relative "./tag"
+require_relative './tag'
 
 module HexletCode
   module Tags
@@ -10,7 +10,7 @@ module HexletCode
       end
 
       def to_html_string
-        Tag.build("label", for: @name) { @name.capitalize }
+        Tag.build('label', for: @name) { @name.capitalize }
       end
     end
   end

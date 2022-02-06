@@ -17,7 +17,7 @@ module HexletCode
         def stringify_attributes(attributes)
           attributes.map do |key, value|
             "#{key}=\"#{value}\"" unless value.nil?
-          end.compact.join(" ")
+          end.compact.join(' ')
         end
       end
     end

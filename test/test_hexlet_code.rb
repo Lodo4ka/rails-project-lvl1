@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require "test_helper"
+require 'test_helper'
 
 class TestHexletCode < Minitest::Test
   include FixtureHelper
@@ -12,8 +12,8 @@ class TestHexletCode < Minitest::Test
   end
 
   def test_generate_form_inputs
-    user = User.new job: "hexlet"
-    expected = File.new("./test/fixtures/form-submit.html").read.chomp
+    user = User.new job: 'hexlet'
+    expected = File.new('./test/fixtures/form-submit.html').read.chomp
     actual = HexletCode.form_for user do |f|
       f.input :name
       f.input :job
@@ -23,8 +23,8 @@ class TestHexletCode < Minitest::Test
   end
 
   def test_generate_form_inputs_with_textarea
-    user = User.new name: "rob", job: "hexlet", gender: "m"
-    expected = File.new("./test/fixtures/form-submit-textarea.html").read.chomp
+    user = User.new name: 'rob', job: 'hexlet', gender: 'm'
+    expected = File.new('./test/fixtures/form-submit-textarea.html').read.chomp
     actual = HexletCode.form_for user do |f|
       f.input :name
       f.input :job, as: :text
@@ -34,11 +34,11 @@ class TestHexletCode < Minitest::Test
   end
 
   def test_generate_form_inputs_with_input_class
-    user = User.new name: "rob", job: "hexlet", gender: "m"
-    expected = File.new("./test/fixtures/forms-submit-class.html").read.chomp
+    user = User.new name: 'rob', job: 'hexlet', gender: 'm'
+    expected = File.new('./test/fixtures/forms-submit-class.html').read.chomp
     actual = HexletCode.form_for user do |f|
-      f.input :name, class: "user-input"
-      f.input :job, as: :text, class: "textarea"
+      f.input :name, class: 'user-input'
+      f.input :job, as: :text, class: 'textarea'
       f.submit
     end
     assert { expected == actual }

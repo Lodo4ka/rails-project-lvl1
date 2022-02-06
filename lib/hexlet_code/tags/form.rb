@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require_relative "./tag"
+require_relative './tag'
 
 module HexletCode
   module Tags
@@ -11,7 +11,7 @@ module HexletCode
       end
 
       def to_html_string
-        Tag.build("form", action: @url, method: "post") { @children.join }
+        Tag.build('form', action: @url, method: 'post') { @children.join }
       end
     end
   end
