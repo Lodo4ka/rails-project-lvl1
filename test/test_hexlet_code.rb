@@ -12,8 +12,8 @@ class TestHexletCode < Minitest::Test
   end
 
   def test_generate_form_inputs
-    user = User.new job: 'hexlet'
-    expected = File.new('./test/fixtures/form-submit.html').read.chomp
+    user = User.new job: "hexlet"
+    expected = File.new("./test/fixtures/form-submit.html").read.chomp
     actual = HexletCode.form_for user do |f|
       f.input :name
       f.input :job

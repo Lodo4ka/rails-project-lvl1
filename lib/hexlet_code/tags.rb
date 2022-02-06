@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module HexletCode
   module Tags
     autoload :Input, "hexlet_code/tags/input"
