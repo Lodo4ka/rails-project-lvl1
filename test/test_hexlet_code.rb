@@ -3,22 +3,22 @@
 require "test_helper"
 
 class TestHexletCode < Minitest::Test
-  User = Struct.new(:name, :job, keyword_init: true)
+  include FixtureHelper
 
-  def setup
-    @user = User.new name: "rob"
-  end
+  User = Struct.new(:name, :job, keyword_init: true)
 
   def test_that_it_has_a_version_number
     refute_nil ::HexletCode::VERSION
   end
 
-  def test_generate_simple_form
-    form_data_default = HexletCode.form_for @user do |data|
+  def test_generate_form_inputs
+    user = User.new job: 'hexlet'
+    expected = File.new('./test/fixtures/form-submit.html').read.chomp
+    actual = HexletCode.form_for user do |f|
+      f.input :name
+      f.input :job
+      f.submit
     end
-    form_data_url = HexletCode.form_for @user, url: "/users" do |f|
-    end
-    assert { form_data_default == "<form action=\"#\" method=\"post\"></form>" }
-    assert { form_data_url == "<form action=\"/users\" method=\"post\"></form>" }
+    assert { expected == actual }
   end
 end
