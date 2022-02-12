@@ -1,19 +1,15 @@
 # frozen_string_literal: true
 
-require_relative './tag'
-
 module HexletCode
   module Tags
     class Input
-      def initialize(attr_name, attr_value, type, attributes = {})
-        @name = attr_name
-        @value = attr_value
-        @type = type || 'text'
-        @attributes = attributes
-      end
 
-      def to_html_string
-        Tag.build 'input', name: @name, type: @type, value: @value, **@attributes
+      attr_reader :tag_name, :attributes, :children
+
+      def initialize(attributes = {})
+        @tag_name = 'input'
+        @attributes = attributes
+        @children = nil
       end
     end
   end

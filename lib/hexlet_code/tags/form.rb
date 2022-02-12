@@ -1,17 +1,14 @@
 # frozen_string_literal: true
 
-require_relative './tag'
-
 module HexletCode
   module Tags
     class Form
-      def initialize(url, children)
-        @url = url
-        @children = children
-      end
+      attr_reader :tag_name, :attributes, :children
 
-      def to_html_string
-        Tag.build('form', action: @url, method: 'post') { @children.join }
+      def initialize(url, children)
+        @tag_name = 'form'
+        @attributes = { action: url, method: 'post' }
+        @children = children
       end
     end
   end

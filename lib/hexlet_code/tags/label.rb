@@ -1,17 +1,16 @@
 # frozen_string_literal: true
 
-require_relative './tag'
-
 module HexletCode
   module Tags
     class Label
-      def initialize(attr_name)
-        @name = attr_name
+      attr_reader :tag_name, :attributes, :children
+
+      def initialize(attributes)
+        @tag_name = 'label'
+        @attributes = attributes
+        @children = attributes[:for].capitalize
       end
 
-      def to_html_string
-        Tag.build('label', for: @name) { @name.capitalize }
-      end
     end
   end
 end
