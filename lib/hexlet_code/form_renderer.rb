@@ -2,9 +2,7 @@
 
 module HexletCode
   class FormRenderer
-
     class << self
-
       def build_form(form)
         build(form.tag_name, **form.attributes) do
           form.children.map do |child_tag|

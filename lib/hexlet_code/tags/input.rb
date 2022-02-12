@@ -3,7 +3,6 @@
 module HexletCode
   module Tags
     class Input
-
       attr_reader :tag_name, :attributes, :children
 
       def initialize(attributes = {})

@@ -10,7 +10,6 @@ module HexletCode
         @attributes = attributes
         @children = attributes[:for].capitalize
       end
-
     end
   end
 end
