@@ -2,13 +2,9 @@
 
 module HexletCode
   module Tags
-    class Input
-      attr_reader :tag_name, :attributes, :children
-
+    class Input < Tag
       def initialize(attributes = {})
-        @tag_name = 'input'
-        @attributes = attributes
-        @children = nil
+        super('input', nil, attributes)
       end
     end
   end

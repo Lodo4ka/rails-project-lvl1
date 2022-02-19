@@ -2,13 +2,9 @@
 
 module HexletCode
   module Tags
-    class Label
-      attr_reader :tag_name, :attributes, :children
-
+    class Label < Tag
       def initialize(attributes)
-        @tag_name = 'label'
-        @attributes = attributes
-        @children = attributes[:for].capitalize
+        super('label', attributes[:for].capitalize, attributes)
       end
     end
   end

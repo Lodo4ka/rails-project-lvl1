@@ -1,14 +1,11 @@
 # frozen_string_literal: true
 
+require_relative './tag'
 module HexletCode
   module Tags
-    class Form
-      attr_reader :tag_name, :attributes, :children
-
-      def initialize(url, children)
-        @tag_name = 'form'
-        @attributes = { action: url, method: 'post' }
-        @children = children
+    class Form < Tag
+      def initialize(attributes, children)
+        super('form', children, { **attributes, method: 'post' })
       end
     end
   end
