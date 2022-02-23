@@ -1,5 +1,5 @@
 [![Actions Status](https://github.com/Lodo4ka/rails-project-lvl1/workflows/hexlet-check/badge.svg)](https://github.com/Lodo4ka/rails-project-lvl1/actions)
-[![Actions Status](https://github.com/Lodo4ka/rails-project-lvl1/workflows/Lint and Test/badge.svg)](https://github.com/Lodo4ka/rails-project-lvl1/actions)
+[![Actions Status](https://github.com/Lodo4ka/rails-project-lvl1/workflows/lint-test/badge.svg)](https://github.com/Lodo4ka/rails-project-lvl1/actions)
 
 # HexletCode
 
