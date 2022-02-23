@@ -14,7 +14,6 @@ module HexletCode
     form_attributes = required_attr.merge(attributes.except(:url))
     form_builder = FormBuilder.new(entity, form_attributes)
     yield form_builder if block_given?
-    form = form_builder.create_form
-    FormRenderer.build_form(form)
+    FormRenderer.build_form(form_builder.form)
   end
 end

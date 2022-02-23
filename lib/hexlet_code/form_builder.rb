@@ -2,10 +2,11 @@
 
 module HexletCode
   class FormBuilder
+    attr_reader :form
+
     def initialize(entity, attributes)
       @entity = entity
-      @attributes = attributes
-      @tags = []
+      @form = { attributes: { action: attributes[:url], method: 'post', **attributes.except(:url) }, children: [] }
     end
 
     def input(attr_name, attributes = {})
@@ -14,17 +15,13 @@ module HexletCode
       attrib_tag = attributes.except(:as)
       input = { attributes: { name: attr_name, type: 'text', value: attr_value, **attrib_tag },
                 label: true, input_type: type, children: nil }
-      @tags << input
+      @form[:children] << input
     end
 
     def submit(attr_value = 'Save', attributes = {})
       submit_input = { attributes: { name: 'commit', type: 'submit', value: attr_value, **attributes },
                        label: false, input_type: :input, children: nil }
-      @tags << submit_input
-    end
-
-    def create_form
-      { attributes: { action: @attributes[:url], method: 'post', **@attributes.except(:url) }, children: @tags }
+      @form[:children] << submit_input
     end
   end
 end
