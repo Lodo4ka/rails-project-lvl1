@@ -43,4 +43,15 @@ class TestHexletCode < Minitest::Test
     end
     assert { expected == actual }
   end
+
+  def test_generate_form_with_class_and_inputs_with_input_class
+    user = User.new name: 'rob', job: 'hexlet', gender: 'm'
+    expected = read_fixture_file('form-submit-classes.html')
+    actual = HexletCode.form_for(user, { class: 'form' }) do |f|
+      f.input :name, class: 'user-input'
+      f.input :job, as: :text, class: 'textarea'
+      f.submit({ class: 'submit' })
+    end
+    assert { expected == actual }
+  end
 end

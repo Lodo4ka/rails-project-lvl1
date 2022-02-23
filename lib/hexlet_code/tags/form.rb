@@ -5,7 +5,7 @@ module HexletCode
   module Tags
     class Form < Tag
       def initialize(attributes, children)
-        super('form', children, { **attributes, method: 'post' })
+        super('form', children, attributes)
       end
     end
   end
