@@ -11,10 +11,11 @@ module HexletCode
 
     def input(attr_name, attributes = {})
       attr_value = @entity.public_send(attr_name)
-      type = attributes[:as] || :input
-      attrib_tag = attributes.except(:as)
-      input = { attributes: { name: attr_name, type: 'text', value: attr_value, **attrib_tag },
-                label: true, input_type: type, children: nil }
+      input_type = attributes[:as] || :input
+      type = attributes[:type] || 'text'
+      attrib_tag = attributes.except(:as, :type)
+      input = { attributes: { name: attr_name, type: type, value: attr_value, **attrib_tag },
+                label: true, input_type: input_type, children: nil }
       @form[:children] << input
     end
 
