@@ -13,7 +13,7 @@ class TestHexletCode < Minitest::Test
 
   def test_generate_form_inputs
     user = User.new job: 'hexlet'
-    expected = File.new('./test/fixtures/form-submit.html').read.chomp
+    expected = read_fixture_file('form-submit.html')
     actual = HexletCode.form_for user do |f|
       f.input :name
       f.input :job
@@ -24,7 +24,7 @@ class TestHexletCode < Minitest::Test
 
   def test_generate_form_inputs_with_textarea
     user = User.new name: 'rob', job: 'hexlet', gender: 'm'
-    expected = File.new('./test/fixtures/form-submit-textarea.html').read.chomp
+    expected = read_fixture_file('form-submit-textarea.html')
     actual = HexletCode.form_for user do |f|
       f.input :name
       f.input :job, as: :text
@@ -35,7 +35,7 @@ class TestHexletCode < Minitest::Test
 
   def test_generate_form_inputs_with_input_class
     user = User.new name: 'rob', job: 'hexlet', gender: 'm'
-    expected = File.new('./test/fixtures/forms-submit-class.html').read.chomp
+    expected = read_fixture_file('forms-submit-class.html')
     actual = HexletCode.form_for user do |f|
       f.input :name, class: 'user-input'
       f.input :job, as: :text, class: 'textarea'
