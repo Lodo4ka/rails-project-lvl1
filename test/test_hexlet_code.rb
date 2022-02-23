@@ -50,7 +50,7 @@ class TestHexletCode < Minitest::Test
     actual = HexletCode.form_for(user, { class: 'form' }) do |f|
       f.input :name, class: 'user-input'
       f.input :job, as: :text, class: 'textarea'
-      f.submit({ class: 'submit' })
+      f.submit('Save', { class: 'submit' })
     end
     assert { expected == actual }
   end

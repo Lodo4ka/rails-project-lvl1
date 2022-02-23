@@ -17,11 +17,8 @@ module HexletCode
       @tags << input
     end
 
-    def submit(attributes = {})
-      required_attr = {}
-      required_attr[:value] = attributes[:value] || 'Save'
-      submit_attributes = required_attr.merge(attributes.except(:value))
-      submit_input = { attributes: { name: 'commit', type: 'submit', **submit_attributes },
+    def submit(attr_value = 'Save', attributes = {})
+      submit_input = { attributes: { name: 'commit', type: 'submit', value: attr_value, **attributes },
                        label: false, input_type: :input, children: nil }
       @tags << submit_input
     end
