@@ -4,7 +4,7 @@ module HexletCode
   class FormBuilder
     attr_reader :form
 
-    FORM_METHOD = 'post'
+    FORM_DEFAULT_METHOD = 'post'
     FORM_DEFAULT_URL = '#'
     FORM_DEFAULT_NAME = 'commit'
     FORM_DEFAULT_TYPE = 'submit'
@@ -14,7 +14,7 @@ module HexletCode
       @entity = entity
       default_attrs = {}
       default_attrs[:action] = attributes[:url] || FORM_DEFAULT_URL
-      default_attrs[:method] = FORM_METHOD
+      default_attrs[:method] = FORM_DEFAULT_METHOD
       @form = { attributes: { **default_attrs, **attributes.except(:url) }, children: [] }
     end
 
@@ -29,7 +29,8 @@ module HexletCode
     end
 
     def submit(attr_value = 'Save', attributes = {})
-      submit_input = { attributes: { name: FORM_DEFAULT_NAME, type: FORM_DEFAULT_TYPE, value: attr_value, **attributes },
+      submit_input = { attributes: { name: FORM_DEFAULT_NAME, type: FORM_DEFAULT_TYPE,
+                                     value: attr_value, **attributes },
                        label: false, input_type: :input, children: nil }
       @form[:children] << submit_input
     end
